@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { getRandomColor } from "../helpers";
-
+// import Products from "../pages/Products";
 function Header() {
   const randomColor = getRandomColor();
   return (
@@ -25,8 +25,8 @@ function Header() {
 
           </li>
           <li>
-            {/* Create here a link to this page */}
-            Basket
+            <Link to='/basket'>  Basket </Link>
+
           </li>
         </ul>
       </nav>
