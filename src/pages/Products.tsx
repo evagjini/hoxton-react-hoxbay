@@ -21,7 +21,7 @@ function Products() {
 
 
     useEffect(() => {
-        fetch('http://localhost:4000/products')
+        fetch('')
             .then(resp => resp.json())
             .then(productsFromServer => setProducts(productsFromServer))
 
@@ -37,8 +37,6 @@ function Products() {
                         <Link to={`/products/${product.id}`} >
                             <img src={product.image} />
                             <h3>{product.title}</h3>
-
-
                         </Link>
                     </li>
 
