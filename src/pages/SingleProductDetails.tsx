@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Navigate, useParams } from "react-router-dom"
+import { Link, Navigate, useParams } from "react-router-dom"
 
 type Product = {
     id: number
@@ -15,6 +15,7 @@ function SingleProductDetails() {
 
 
     const [product, setProduct] = useState<null | Product>(null)
+    const [basket, setBasket] = useState<Product[]>([])
     const params = useParams()
 
 
@@ -33,7 +34,7 @@ function SingleProductDetails() {
             </div>
         )
 
-    if (product.id === undefined) return <Navigate to='/products' />
+    if (product.id === undefined) return <Navigate to='/home' />
 
     return (
         <section className="product-detail main-wrapper">
@@ -52,8 +53,29 @@ function SingleProductDetails() {
 
                 <p> £{product.price}</p>
 
-                {/* {<!-- Once you click in this button, the user should be redirected to the Basket page -->} */}
-                <button>Add to basket</button>
+                < Link to={`/basket`}>
+
+
+                    <button onClick={() => {
+                        fetch(`http:localhost:4000/basket`, {
+                            method: 'POST',
+                            headers: {
+                                "Content - type": "application/json"
+                            },
+                            body: JSON.stringify({
+                                productId: product.id,
+                                quantity: 1,
+                                image: product.image,
+                                title: product.title,
+                                price: product.price.toFixed(2)
+
+
+                            })
+                        })
+                            .then((resp) => resp.json())
+                            .then(product => setBasket([...basket, product]))
+                    }}>Add to basket</button>
+                </Link>
             </div>
         </section>
 

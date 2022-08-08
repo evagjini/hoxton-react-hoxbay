@@ -4,7 +4,7 @@ import Basket from './pages/Basket'
 import Categories from './pages/Categories'
 import CategoryItem from './pages/CategoryItem'
 import Products from './pages/Products'
-import SingleProductDetails from './pages/SingleProductdetails'
+import SingleProductDetails from './pages/SingleProductDetails'
 
 
 
