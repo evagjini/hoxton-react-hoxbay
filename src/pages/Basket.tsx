@@ -76,7 +76,7 @@ function Basket() {
                             </select>
 
 
-                            <p>Item total : £${(product.price * product.quantity)}.toFixed(2)</p>
+                            <p>Item total : {product.name} £{(product.price * product.quantity)}</p>
                         </div>
                     </li>
 
