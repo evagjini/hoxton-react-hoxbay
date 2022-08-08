@@ -51,7 +51,7 @@ function Basket() {
                             <select
                                 value={product.quantity}
                                 onChange={(event) => {
-                                    fetch(`http://localhost:4000/basket/${product.idS}`, {
+                                    fetch(`http://localhost:4000/basket/${product.id}`, {
                                         method: "PATCH",
                                         headers: {
                                             "Conent-Type": "application/json",
